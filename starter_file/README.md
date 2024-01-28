@@ -1,8 +1,10 @@
 *NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
 
-# Your Project Title Here
+# Heart Failure Prediction
+Cardiovascular diseases (CVDs) are the number 1 cause of death globally, taking an estimated 17.9 million lives each year, which accounts for 31% of all deaths worldwide. Four out of 5CVD deaths are due to heart attacks and strokes, and one-third of these deaths occur prematurely in people under 70 years of age. Heart failure is a common event caused by CVDs and this dataset contains 11 features that can be used to predict a possible heart disease.
 
-*TODO:* Write a short introduction to your project.
+People with cardiovascular disease or who are at high cardiovascular risk (due to the presence of one or more risk factors such as hypertension, diabetes, hyperlipidaemia or already established disease) need early detection and management wherein a machine learning model can be of great help.
+
 
 ## Project Set Up and Installation
 *OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
@@ -11,9 +13,25 @@
 
 ### Overview
 *TODO*: Explain about the data you are using and where you got it from.
+The dataset used for the project is the [Heart Failure Prediction](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction/data) dataset from Kaggle.The anonymized data was collected from multiple hospitals on several patients to predict the likelihood of a new patient having heart disease in the future. The dataset includes relevant information for each patient, such as personal information and medical data, including whether or not they have had heart disease before.
+
+Attribute Information
+* Age: age of the patient [years]
+* Sex: sex of the patient [M: Male, F: Female]
+* ChestPainType: chest pain type [TA: Typical Angina, ATA: Atypical Angina, NAP: Non-Anginal Pain, ASY: Asymptomatic]
+* RestingBP: resting blood pressure [mm Hg]
+* Cholesterol: serum cholesterol [mm/dl]
+* FastingBS: fasting blood sugar [1: if FastingBS > 120 mg/dl, 0: otherwise]
+* RestingECG: resting electrocardiogram results [Normal: Normal, ST: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV), LVH: showing probable or definite left ventricular hypertrophy by Estes' criteria]
+* MaxHR: maximum heart rate achieved [Numeric value between 60 and 202]
+* ExerciseAngina: exercise-induced angina [Y: Yes, N: No]
+* Oldpeak: oldpeak = ST [Numeric value measured in depression]
+* ST_Slope: the slope of the peak exercise ST segment [Up: upsloping, Flat: flat, Down: downsloping]
+* HeartDisease: output class [1: heart disease, 0: Normal]
 
 ### Task
 *TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+We will build a model to accurately predict the likelihood of a new patient having heart disease in the future.
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
