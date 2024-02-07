@@ -35,26 +35,70 @@ We will build a model to accurately predict the likelihood of a new patient havi
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
+The dataset was created in AzureML studio by uploading the local file. The code to utilize KaggleDatasetFactory is included in the Notebook.
+![Heart Failure Prediction Dataset](./screenshots/Dataset.png)
 
 ## Automated ML
 *TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
 
+AutoML config utilized the compute cluster that was created to perform classification utlizing the dataset with 'HeartDisease' as the column to predict. The experiment timeout was set to 20 mins with max concurrent iterations set to 5 to best utilize the compute cluster. The primary metric was accuracy.
+
 ### Results
 *TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+#### AutoML Run In Progress
+![AutoML Run Details In Progress](./screenshots/AutoML%20Run%20Details%20Start.png)
+
+#### AutoML Run Complete
+![AutoML Run Details Complete](./screenshots/AutoML%20Run%20Details%20Complete.png)
 
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+#### Best Model 
+![Best Model Azure ML Studio](./screenshots/AutoML%20Studio.png)
 
 ## Hyperparameter Tuning
 *TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+KNeighborsClassifier was used with HeartFailurePrediction dataset. The classifier assigns the object to the class most common among its k nearest neighbors (k is a positive integer). Default values are as follow:
+- n_neighbors: 5
+- weights: 'uniform'
+- algorithm: 'auto'
+- leaf_size: 30
+- p: 2
+- metric: 'minkowski'
+- metric_params: None
+- n_jobs: None
 
+The parameters used for Hypertuning
+- '--n_neighbors': choice(7, 9, 12),  
+- '--weights': choice('uniform', 'distance'),  
+- '--metric': choice('euclidean', 'manhattan', 'chebyshev', 'minkowski')  
 
 ### Results
 *TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+#### Hyperdrive Run In Progress
+![Hyperdrive Run Details In Progress](./screenshots/Hyperdrive%20Run%20Details%20Start.png)
 
+#### Hyperdrive Run Complete
+![Hyperdrive Run Details In Progress](./screenshots/Hyperdrive%20Run%20Details%20Complete.png)
 *TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+
+#### Hyperdrive Results
+![Hyperdrive Results](./screenshots/Hyperdrive%20Sweep.png)
+
+#### Hyperdrive Best Run
+![Hyperdrive Results](./screenshots/Hyperdrive%20Best%20Run.png)
+
+### Register the best model
+![Hyperdrive Best Model](./screenshots/Hyperdrive%20Best%20Model%20Registered.png)
 
 ## Model Deployment
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+
+Best Model from AutoML was deployed as it had the best accuracy.
+#### Register the best model
+![Best AutoML Model](./screenshots/AutoML%20Best%20Model%20Registered.png)
+
+#### Deploy the best model
+![Deployed Model](./screenshots/Model%20Endpoint.png)
 
 ## Screen Recording
 *TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
