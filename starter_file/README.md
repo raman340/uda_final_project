@@ -97,10 +97,7 @@ Best Model from AutoML was deployed as it had the best accuracy.
 ![Webservice Response](./screenshots/Webservice%20Call.png)
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+- Screen Recording   [Final Project Screencast](https://github.com/raman340/uda_final_project/blob/master/starter_file/Final%20Project.zip).
 
 ## Standout Suggestions
 
