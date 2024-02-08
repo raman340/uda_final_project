@@ -34,10 +34,12 @@ The dataset was created in AzureML studio by uploading the local file. The code 
 ![Heart Failure Prediction Dataset](./screenshots/Dataset.png)
 
 ## Automated ML
-AutoML config utilized the compute cluster that was created to perform classification utlizing the dataset with 'HeartDisease' as the column to predict. The experiment timeout was set to 20 mins with max concurrent iterations set to 5 to best utilize the compute cluster. The primary metric was accuracy.
+- AutoML config utilized the compute cluster that was created to perform classification utilizing the dataset with 'HeartDisease' as the column to predict. 
+- The experiment timeout was set to 20 mins with max concurrent iterations set to 5 to best utilize the compute cluster.
+- The primary metric was accuracy.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
+
 #### AutoML Run In Progress
 ![AutoML Run Details In Progress](./screenshots/AutoML%20Run%20Details%20Start.png)
 
@@ -48,7 +50,7 @@ AutoML config utilized the compute cluster that was created to perform classific
 ![Best Model Azure ML Studio](./screenshots/AutoML%20Studio.png)
 
 ## Hyperparameter Tuning
-KNeighborsClassifier was used with HeartFailurePrediction dataset. The classifier assigns the object to the class most common among its k nearest neighbors (k is a positive integer). Default values are as follow:
+K-Nearest Neighbors Classifier was used with HeartFailurePrediction dataset. The classifier assigns the object to the class most common among its k nearest neighbors (k is a positive integer). Default values are as follow:
 - n_neighbors: 5
 - weights: 'uniform'
 - algorithm: 'auto'
@@ -63,8 +65,10 @@ The parameters used for Hypertuning
 - '--weights': choice('uniform', 'distance'),  
 - '--metric': choice('euclidean', 'manhattan', 'chebyshev', 'minkowski')  
 
+The BanditPolicy was used as the early termination policy. It helps to terminate low-performing runs early during hyperparameter tuning experiments, thereby saving time and resources.
+
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
+
 #### Hyperdrive Run In Progress
 ![Hyperdrive Run Details In Progress](./screenshots/Hyperdrive%20Run%20Details%20Start.png)
 
@@ -81,7 +85,6 @@ The parameters used for Hypertuning
 ![Hyperdrive Best Model](./screenshots/Hyperdrive%20Best%20Model%20Registered.png)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 Best Model from AutoML was deployed as it had the best accuracy.
 #### Register the best model
@@ -100,4 +103,22 @@ Best Model from AutoML was deployed as it had the best accuracy.
 - Demo of a sample request sent to the endpoint and its response
 
 ## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+
+
+## Conclusion
+This project holds potential in developing a predictive model for heart disease detection using the provided dataset. However, it is important to note some limitations and potential drawbacks before implementing this model in a real-world healthcare setting.
+
+#### Pros of using this model in a real-world healthcare setting:
+
+- Early identification of patients at risk of heart disease could lead to early intervention and prevention of heart disease.
+- Automated detection of heart disease could lead to more efficient use of healthcare resources and improved patient outcomes.
+- Machine learning models can analyze large amounts of data quickly, providing healthcare professionals with valuable insights into patient risk factors.
+
+#### Cons of using this model in a real-world healthcare setting:
+
+- The model is based on retrospective data, which may not accurately reflect the current population or demographic changes.
+- The model's accuracy may be affected by differences in data collection across different hospitals and healthcare systems.
+- The model's performance may degrade over time as patient populations and risk factors change.
+- There may be ethical and legal considerations related to the use of machine learning models in healthcare decision-making.
+
+In conclusion, our predictive model has shown promise in identifying patients at risk of heart disease. However, it is important to consider its limitations and potential drawbacks before implementing it in a real-world healthcare setting. Continuous validation and monitoring will be necessary to ensure its continued accuracy and usefulness.
